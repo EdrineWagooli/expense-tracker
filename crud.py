@@ -1,0 +1,1 @@
+# Functions that add/read/update/delete transactions, using models + database, no UI logic
