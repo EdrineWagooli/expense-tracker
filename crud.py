@@ -32,6 +32,14 @@ def create_transaction(
     db.refresh(transaction)
     return transaction
 
+    except SQLAlchemyError as e:
+        db.rollback()
+        raise Exception(f"Failed to create transaction: {str(e)}")
+
+    except Exception as e:
+        db.rollback()
+        raise Exception(f"Unexpected error creating transaction: {str(e)}")
+
 
 # --- Read the transaction ---
 def get_transactions(
