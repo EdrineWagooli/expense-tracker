@@ -29,3 +29,12 @@ class Transaction(Base):
     transaction_date: Mapped[datetime] = mapped_column(DateTime,default=datetime.now)
     trans_type: Mapped[TransactionType] = mapped_column(Enum(TransactionType), nullable=False)
 
+
+def __repr__(self) -> str:
+    date_str = self.transaction_date.strftime("%Y-%m-%d %H:%M:%S")
+    desc = self.description or "no description"
+    return (
+        f"<Transaction #{self.trans_id} | "
+        f"{self.trans_type.value}: {self.amount:,.2f} | "
+        f"{self.category}: {desc} | {date_str}>"
+    )
