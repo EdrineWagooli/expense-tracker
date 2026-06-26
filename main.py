@@ -11,6 +11,10 @@ def main():
     db = next(get_db())
 
     try:
+        # Cleanup part
+        db.query(Transaction).delete()
+        db.commit()
+
         print("=" * 50)
         print("    🧪 Expense Tracker \n")
         print("=" * 50)
