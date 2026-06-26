@@ -3,7 +3,7 @@ from datetime import datetime
 
 from database import  get_db
 from crud import create_transaction, get_transactions, update_transaction, delete_transaction
-from models import  TransactionType
+from models import  TransactionType, Transaction
 
 
 def main():
