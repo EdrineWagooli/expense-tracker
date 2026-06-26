@@ -7,7 +7,7 @@ from typing import Generator
 from models import Base
 
 
-engine = create_engine('sqlite:///expense_tracker.db', echo=True)
+engine = create_engine('sqlite:///expense_tracker.db', echo=False)
 SessionLocal = sessionmaker(bind=engine)
 Base.metadata.create_all(engine)
 
