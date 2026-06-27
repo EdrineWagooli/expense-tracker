@@ -26,7 +26,7 @@ def create_transaction(
         transaction = Transaction(
             amount = amount,
             trans_type = trans_type,
-            category = category,
+            category = category.strip().capitalize(),
             description = description
         )
 
@@ -62,7 +62,7 @@ def get_transactions(
 
         # Apply filters if provided
         if category is not None:
-            query = query.filter(Transaction.category == category)  # type: ignore
+            query = query.filter(Transaction.category.ilike(category)) # type: ignore
 
         if trans_type is not None:
             query = query.filter(Transaction.trans_type == trans_type)  # type: ignore
